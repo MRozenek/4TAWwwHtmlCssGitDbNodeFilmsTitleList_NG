@@ -1,9 +1,10 @@
-const express = require('express');
 const mysql = require('mysql2');
 const path = require('path');
 
+const cors = require('cors');
+const express = require('express');
 const app = express();
-
+app.use(cors()); // To odblokuje możliwość pobierania danych przez przeglądarkę
 app.use(express.static(__dirname));
 
 // Połączenie z bazą

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <title>Tytuł strony</title>
@@ -26,49 +27,50 @@
         }
     </style>
 </head>
+
 <body>
 
-<h1>TO JEST PIERWSZY NAGŁÓWEK H1</h1>
+    <h1>TO JEST PIERWSZY NAGŁÓWEK H1</h1>
 
-<h1 style="font-size: 22px;">
-    TO JEST DRUGI NAGŁÓWEK H1 (MNIEJSZY)
-</h1>
+    <h1 style="font-size: 22px;">
+        TO JEST DRUGI NAGŁÓWEK H1 (MNIEJSZY)
+    </h1>
 
-<p id="akapit1">
-    TO JEST PIERWSZY AKAPIT – KOLOR CZERWONY
-</p>
+    <p id="akapit1">
+        TO JEST PIERWSZY AKAPIT – KOLOR CZERWONY
+    </p>
 
-<p id="akapit2">
-    TO JEST DRUGI AKAPIT – WIĘKSZY ROZMIAR (PROCENTY) I ZMIENIONE TŁO
-</p>
+    <p id="akapit2">
+        TO JEST DRUGI AKAPIT – WIĘKSZY ROZMIAR (PROCENTY) I ZMIENIONE TŁO
+    </p>
 
-<p id="akapit3">
-    TO JEST TRZECI AKAPIT – WIĘKSZY ROZMIAR (PIKSELE)
-</p>
+    <p id="akapit3">
+        TO JEST TRZECI AKAPIT – WIĘKSZY ROZMIAR (PIKSELE)
+    </p>
 
-<p id="akapit4">
-    TO JEST CZWARTY AKAPIT – PRZESUNIĘTY W PRAWO
-</p>
+    <p id="akapit4">
+        TO JEST CZWARTY AKAPIT – PRZESUNIĘTY W PRAWO
+    </p>
 
-<img src="obrazek.png" alt="obrazek">
+    <img src="obrazek.png" alt="obrazek">
+
+    <ul id="films"></ul>
 
 </body>
+
 </html>
 
-<ul id="films"></ul>
+<script defer>
+    fetch('http://localhost:3000/films')
+        .then(res => res.json())
+        .then(data => {
+            const list = document.getElementById('films');
 
-<script>
-fetch('http://localhost:3000/films')
-  .then(res => res.json())
-  .then(data => {
-    const list = document.getElementById('films');
-
-    data.forEach(film => {
-      const li = document.createElement('li');
-      li.textContent = `${film.title} – ${film.description}`;
-      list.appendChild(li);
-    });
-  })
-  .catch(err => console.error(err));
+            data.forEach(film => {
+                const li = document.createElement('li');
+                li.textContent = `${film.title} – ${film.description}`;
+                list.appendChild(li);
+            });
+        })
+        .catch(err => console.error(err));
 </script>
-
