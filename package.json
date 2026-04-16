@@ -12,6 +12,14 @@
   "type": "commonjs",
   "dependencies": {
     "express": "^5.2.1",
-    "mysql2": "^3.21.0"
-  }
+    "mysql2": "^3.22.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grundn2-code/moja-strona-filmy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/grundn2-code/moja-strona-filmy/issues"
+  },
+  "homepage": "https://github.com/grundn2-code/moja-strona-filmy#readme"
 }
